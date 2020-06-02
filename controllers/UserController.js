@@ -1,10 +1,12 @@
+const User = require('../models/User');
+
 class UserController {
   static async getAll(req, res) {
-    res.end('Get all users');
+    res.send(await User.getAll());
   }
 
   static async getUser(req, res) {
-    res.end('Get user by ID');
+    res.send(await User.getUser(req.params.id));
   }
 
   static async createUser(req, res) {
